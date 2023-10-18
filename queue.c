@@ -75,7 +75,7 @@ front++;
 void peek()
 {
 if(rear<front)
-printf("the stack is empty\n");
+printf("the queue is empty\n");
 else
 {
 printf("the lower most value of queue=%d",a[front]);
@@ -89,7 +89,7 @@ if(front>rear)
 printf("the queue is empty\n");
 else
 {
-printf("the stack:");
+printf("the queue:");
 for(i=front;i<=rear;i++)
 {
 printf("%d\t",a[i]);
