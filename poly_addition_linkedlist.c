@@ -13,9 +13,9 @@ scanf("%d",&no2);
 printf("enter the elements of 1st poly in decending order\n");
 for(i=0;i<no1;i++)
 {
-   printf("enter the coef of %d term",i+1);
+   printf("enter the coef of %d term:",i+1);
    scanf("%d",&coef1);
-   printf("enter the expo of %d term",i+1);
+   printf("enter the expo of %d term:",i+1);
    scanf("%d",&expo1);
    temp=(struct node*)malloc(sizeof(struct node));
    temp->coef=coef1;
@@ -30,20 +30,13 @@ for(i=0;i<no1;i++)
      p1=temp;
      }
  }
- printf("first polynomial:");
- p=phead;
- while(p!=NULL)
- {
- printf("%dX^%d+",p->coef,p->expo);
- p=p->link;
- }
- }
+
   printf("enter the elements of 2nd poly in decending order\n");
 for(i=0;i<no1;i++)
 {
-   printf("enter the coef of %d term",i+1);
+   printf("enter the coef of %d term:",i+1);
    scanf("%d",&coef1);
-   printf("enter the expo of %d term",i+1);
+   printf("enter the expo of %d term:",i+1);
    scanf("%d",&expo1);
    temp=(struct node*)malloc(sizeof(struct node));
    temp->coef=coef1;
@@ -57,6 +50,107 @@ for(i=0;i<no1;i++)
      q1->link=temp;
      q1=temp;
      }
- }   
+ } 
+  printf("First polynomial:");
+ p=phead;
+ while(p!=NULL)
+ {
+ if(p->link==NULL){
+      printf("%dX^%d  ",p->coef,p->expo);
+    }
+    else{
+        printf("%dX^%d + ",p->coef,p->expo);
+    }
+ p=p->link;
+ }
+ printf("\n");
+  printf("Second polynomial:");
+ q=qhead;
+ while(q!=NULL)
+ {
+  if(q->link==NULL){
+      printf("%dX^%d  ",q->coef,q->expo);
+    }
+    else{
+        printf("%dX^%d + ",q->coef,q->expo);
+    }
+ q=q->link;
+ }
+ printf("\n"); 
 p=phead;
 q=qhead;
+while (p!=NULL && q!=NULL){
+    temp=(struct node*)malloc(sizeof(struct node));
+    if(p->expo == q->expo){
+        temp->coef=p->coef+q->coef;
+        temp->expo=p->expo;
+        temp->link=NULL;
+        p=p->link;
+        q=q->link;
+    }
+    else if(p->expo > q->expo){
+        temp->expo=p->expo;
+        temp->coef=p->coef;
+        temp->link=NULL;
+        p=p->link;
+    }
+    else{
+        temp->expo=q->expo;
+        temp->coef=q->coef;
+        temp->link=NULL;
+        q=q->link;
+    }
+     if(rhead==NULL){
+     rhead=temp;
+     r=temp;
+    }
+  else{
+     r->link=temp;
+     r=temp;
+     }
+}
+while(p!=NULL){
+    temp=(struct node*)malloc(sizeof(struct node));
+    temp->expo=p->expo;
+    temp->coef=p->coef;
+    temp->link=NULL;
+    p=p->link;
+     if(rhead==NULL){
+     rhead=temp;
+     r=temp;
+    }
+  else{
+     r->link=temp;
+     r=temp;
+     }
+}
+while(q!=NULL){
+    temp=(struct node*)malloc(sizeof(struct node));
+    temp->expo=q->expo;
+    temp->coef=q->coef;
+    temp->link=NULL;
+    q=q->link;
+     if(rhead==NULL){
+     rhead=temp;
+     r=temp;
+    }
+  else{
+     r->link=temp;
+     r=temp;
+     }
+}
+ printf("Resultant polynomial:");
+ r=rhead;
+ i=1;
+ while(r!=NULL)
+ {
+    if(r->link==NULL){
+      printf("%dX^%d  ",r->coef,r->expo);
+    }
+    else{
+        printf("%dX^%d + ",r->coef,r->expo);
+    }
+ r=r->link;
+ }
+ printf("\n");
+}
