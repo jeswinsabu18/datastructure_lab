@@ -11,7 +11,7 @@ void main(){
    printf("enter the position you want to check\n");
    scanf("%d",&pos);
    if((pos/2)!=0){
-     printf("parent of %d is:%d\n",pos,a[pos/2]);
+     printf("parent of %d is:%d\n",a[pos],a[pos/2]);
    }
    else{
      printf("no parent\n");
@@ -20,13 +20,13 @@ void main(){
       printf("no left child\n");
    }
    else{
-     printf("Left child of %d is :%d\n",pos,a[2*pos]);
+     printf("Left child of %d is :%d\n",a[pos],a[2*pos]);
    }
    if((2*pos)+1>limit){
      printf("no right child\n");
      }
    else{
-   printf("Right child of %d is:%d\n",pos,a[(2*pos)+1]);
+   printf("Right child of %d is:%d\n",a[pos],a[(2*pos)+1]);
    }
    }
    
