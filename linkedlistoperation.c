@@ -96,13 +96,13 @@ void insertion_at_any_position(){
    printf("enter the data to be added\n");
    scanf("%d",&item);
    temp=(struct node*)malloc(sizeof(struct node));
-   printf("enter the positon after which value to added\n");
+   printf("enter the data after which value to added\n");
    scanf("%d",&key);
    ptr=head;
    while(ptr->data!=key&&ptr->link!=NULL){
    ptr=ptr->link;
    }
-   if(ptr->data!=key&&ptr->link!=NULL)
+   if(ptr->data!=key&&ptr->link==NULL)
    printf("search fails\n");
    else{
    temp->data=item;
@@ -167,7 +167,7 @@ void  deletion_at_any_position(){
    temp=ptr;
    ptr=ptr->link;
    }
-   if(ptr->data!=key&&ptr->link!=NULL){
+   if(ptr->data!=key&&ptr->link==NULL){
       printf("search fails\n");
    }
    else{
